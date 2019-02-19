@@ -1,0 +1,60 @@
+.header {
+	overflow: hidden;
+    background: #000;
+    width: auto;
+	margin: 0 auto;
+}
+.logo {
+    overflow: auto;
+    width: 176px;
+    height: 44px;
+    margin: 14px;
+    float: left;
+}
+.nav {
+	margin-left: 30px;
+	float: left;
+	margin-top: 22px;
+}
+.nav .navnow a {
+	color: #fb6d00;
+	text-decoration: none;
+}
+.nav li {
+	float: left;
+	margin-left: 24px;
+}
+.nav li a {
+	display: block;
+	font-size: 15px;
+	color: #ededed;
+	padding: 4px 6px;
+}
+.nav li a:hover {
+	color: #fb6d00;
+	text-decoration: none;
+}
+
+.header-right {
+	float: right;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: white;
+	font-weight: lighter;
+	margin-right: 100px;
+	margin-top: 30px;
+}
+#login {
+	float: left;
+	font-size: 14px;
+	color: #999999
+}
+#register {
+	float: right;
+	font-size: 14px;
+	color: #999999
+}
+.header-right a {
+	font-size: 14px;
+	color: white;
+}
