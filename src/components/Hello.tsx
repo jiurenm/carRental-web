@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Header } from "./Header";
 
 /// <reference path="../interfaces.d.ts"/>
 
@@ -10,7 +11,7 @@ export class Hello extends React.Component<HelloProps, HelloState> {
         }
     }
 
-    private handleClick() {
+    private handleClick():void {
         this.setState({
             liked: !this.state.liked
         });
@@ -23,6 +24,7 @@ export class Hello extends React.Component<HelloProps, HelloState> {
                 <p onClick={this.handleClick.bind(this)}>
                     You {text} {this.props.firstName}·{this.props.lastName}
                 </p>
+                <Header></Header>
             </div>
         );
     }

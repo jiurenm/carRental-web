@@ -1,24 +1,32 @@
 import * as React from "react";
 //import { Link } from "react-router-dom";
 
-import { Button } from "antd";
+import { Empty,Button } from "antd";
 
 /// <reference path="../interfaces.d.ts"/>
 
-export class Error extends React.Component {
+export class Error extends React.Component<any,any> {
+    constructor(props:any) {
+        super(props);
+    }
+
+    goMain() {
+        this.props.history.push("/")
+    }
+
     render () {
-        return <div className="error-container">
-            <p/>
-            {
-                console.log("a")
-            }
+        return (
             <div>
-                <h2>404</h2>
-                <p>抱歉，你访问的页面不存在</p>
-                <Button type="primary">
-                    {/* <Link to="/">返回首页</Link> */}
-                </Button>
+                <Empty
+                    image="//gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
+                    description={
+                        <span>
+                            404 Not Found
+                        </span>
+                    }
+                ><Button type="primary" onClick={this.goMain.bind(this)}>返回首页</Button>
+                </Empty>
             </div>
-        </div>
+        );
     }
 }

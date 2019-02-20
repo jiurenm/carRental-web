@@ -11,11 +11,3 @@ interface LoginState {
     username: string;
     password: string;
 }
-
-interface HeaderProps {
-    url: string
-}
-
-interface HeaderState {
-    state: string
-}

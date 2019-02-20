@@ -3,14 +3,7 @@ import { Menu, Dropdown, Icon } from 'antd';
 
 /// <reference path="../interfaces.d.ts"/>
 
-export class Header extends React.Component<HeaderProps, HeaderState> {
-    constructor(props:HeaderProps) {
-        super(props);
-        this.state = {
-            state: ""
-        }
-    }
-
+export class Header extends React.Component {
     isLogin () {
         if(window.localStorage.getItem("Authorization") !== null) {
             return <li>
@@ -21,36 +14,17 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
         }
     }
 
-    setPage() {
-        switch (this.props.url) {
-            case "#/":
-                this.setState({
-                    state: "navnow"
-                });
-                break;
-            default:
-                break;
-        }
-    }
-
     render() {
-        const text1 = this.state.state
-        const text2 = this.state.state
-        const text3 = this.state.state
-        const text4 = this.state.state
         return(
             <div className="header">
                 <div className="logo">
-                    <a href="./index"><img src="https://i.loli.net/2019/02/15/5c66212ba997e.png" alt="logo"></img></a>
+                    <a href="./index"><img src="//i.loli.net/2019/02/15/5c66212ba997e.png" alt="logo"></img></a>
                 </div>
                 <ul className="nav">
-                {
-                    console.log(this.props.url)
-                }
-                    <li className={text1}><a href="#/">首页</a></li>
-                    <li className={text2}><a href="#">自驾租车</a></li>
-                    <li className={text3}><a href="#/help">帮助中心</a></li>
-                    <li className={text4}><a href="#">留言板</a></li>
+                    <li><a href="#/">首页</a></li>
+                    <li><a href="#">自驾租车</a></li>
+                    <li><a href="#/help">帮助中心</a></li>
+                    <li><a href="#">留言板</a></li>
                 </ul>
                 <div className="header-right">
                     <div>

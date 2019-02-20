@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import { Header } from './Header';
+import { Main } from './Main'
 
 export class App extends React.Component {
     render() {
         return (
             <div className="app">
                 <Switch>
-                    <Route exact path="/" component={Header}></Route>
+                    <Route exact path="/" component={Main}></Route>
                 </Switch>
             </div>
         );

@@ -19,7 +19,7 @@ export class Login extends React.Component<any, LoginState>{
         };
     }
 
-    handleChange(key:string, val:any) {
+    private handleChange(key:string, val:any):void {
         switch (key) {
             case 'username':
                 this.setState({
@@ -36,7 +36,7 @@ export class Login extends React.Component<any, LoginState>{
         }
     }
 
-    login() {
+    private login():void {
         //axios.post('').then().catch();
         window.localStorage.setItem('Authorization','abc');
         this.props.history.push("/");
@@ -47,7 +47,7 @@ export class Login extends React.Component<any, LoginState>{
         return (
             <div className="login">
                 <div className="top">
-                    <img src="https://i.loli.net/2019/02/15/5c66212ba997e.png"></img>
+                    <img src="//i.loli.net/2019/02/15/5c66212ba997e.png"></img>
                 </div>
                 <div className="middle">
                     <div className="register">
