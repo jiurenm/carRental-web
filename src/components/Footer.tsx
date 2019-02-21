@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as createHashHistroy from  "history";
 
-export class Footer extends React.Component<any,any> {
+class Footer extends React.Component<any,any> {
     constructor(props:any) {
         super(props);
     }
@@ -49,3 +49,5 @@ export class Footer extends React.Component<any,any> {
         );
     }
 }
+
+export default Footer;

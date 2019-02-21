@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Header } from "./Header";
 import { Input } from "antd"
-import 'antd/dist/antd.css';
 
 /// <reference path="../interfaces.d.ts"/>
 

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Layout, Menu, Icon, Divider } from 'antd';
 
 import {Header as Tou} from './Header';
-import {Footer as Wei} from './Footer';
+import Footer from './Footer';
 
 const { SubMenu } = Menu;
 const {
@@ -144,7 +144,7 @@ export class Help extends React.Component<HelpProps, HelpState> {
                 </Layout>
                 </div>
                 <Divider></Divider>
-                <Wei></Wei>
+                <Footer></Footer>
             </div>
         );
     }

@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Menu, Dropdown, Icon, Drawer, Input, Button, message, Divider } from 'antd';
 import * as createHashHistroy from  "history";
-import 'antd/dist/antd.css';
 
 /// <reference path="../interfaces.d.ts"/>
 
@@ -59,7 +58,7 @@ export class Header extends React.Component<any, DrawerState> {
             if (this.state.userName === "admin" && this.state.password === "123456") {
                 window.localStorage.setItem('Authorization','abc');
                 message.success('登录成功',3);
-                createHashHistroy.createHashHistory().push('#/');
+                createHashHistroy.createHashHistory().push('/');
             } else {
                 message.warning("登录失败,用户名或密码错误",3);
             }
@@ -111,13 +110,13 @@ export class Header extends React.Component<any, DrawerState> {
         return(
             <div className="head">
                 <div className="logo">
-                    <a href="./index"><img src="//i.loli.net/2019/02/15/5c66212ba997e.png" alt="logo"></img></a>
+                    <a href="#/"><img src="//i.loli.net/2019/02/15/5c66212ba997e.png" alt="logo"></img></a>
                 </div>
                 <ul className="nav">
                     <li><a href="#/">首页</a></li>
-                    <li><a href="#">自驾租车</a></li>
+                    <li><a href="#/car">自驾租车</a></li>
                     <li><a href="#/help/1">帮助中心</a></li>
-                    <li><a href="#">留言板</a></li>
+                    <li><a href="#/contact">留言板</a></li>
                 </ul>
                 <div className="header-right">
                     <div>
@@ -139,15 +138,16 @@ export class DropDown extends React.Component {
         const onClick = (key:any) => {
             switch (key.key) {
                 case '1':
+                    createHashHistroy.createHashHistory().push('/order');
                     break; 
                 case '2':
+                    createHashHistroy.createHashHistory().push('/assets');
                     break;
                 case '3':
-                    console.log(window.localStorage.getItem('Authorization'));
+                    createHashHistroy.createHashHistory().push('/account');
                     break;
                 case '4':
                     window.localStorage.removeItem('Authorization');
-                    console.log(window.localStorage.getItem('Authorization'));
                     location.reload();
                     break;
                 default:
