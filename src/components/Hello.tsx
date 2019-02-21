@@ -1,5 +1,7 @@
 import * as React from "react";
 import { Header } from "./Header";
+import { Input } from "antd"
+import 'antd/dist/antd.css';
 
 /// <reference path="../interfaces.d.ts"/>
 
@@ -21,10 +23,11 @@ export class Hello extends React.Component<HelloProps, HelloState> {
         const text = this.state.liked ? 'like':'dislike'
         return (
             <div>
-                <p onClick={this.handleClick.bind(this)}>
+                <Input.Password placeholder="请输入密码" />
+                {/* <p onClick={this.handleClick.bind(this)}>
                     You {text} {this.props.firstName}·{this.props.lastName}
                 </p>
-                <Header></Header>
+                <Header></Header> */}
             </div>
         );
     }

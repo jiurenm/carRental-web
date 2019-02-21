@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Divider } from 'antd';
 
 import {Header} from './Header';
 import {Footer} from './Footer';
@@ -10,6 +11,7 @@ export class Main extends React.Component {
         return (
             <div>
                 <Header></Header>
+                <Divider></Divider>
                 <Footer></Footer>
             </div>
         );

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Layout, Menu, Icon, } from 'antd';
+import { Layout, Menu, Icon, Divider } from 'antd';
 
 import {Header as Tou} from './Header';
 import {Footer as Wei} from './Footer';
@@ -124,9 +124,6 @@ export class Help extends React.Component<HelpProps, HelpState> {
                                         <Menu.Item key="1">法律解读</Menu.Item>
                                         <Menu.Item key="2">押金政策</Menu.Item>
                                         <Menu.Item key="3">保险条款</Menu.Item>
-                                        {
-                                            console.log(this.props.match.params.id)
-                                        }
                                     </SubMenu>
                                     <SubMenu key="sub2" title={<span><Icon type="laptop" />服务规则</span>}>
                                         <Menu.Item key="4">服务条款</Menu.Item>
@@ -146,6 +143,7 @@ export class Help extends React.Component<HelpProps, HelpState> {
                     </Content>
                 </Layout>
                 </div>
+                <Divider></Divider>
                 <Wei></Wei>
             </div>
         );

@@ -21,3 +21,9 @@ interface HelpProps {
     match: any;
     history: any;
 }
+
+interface DrawerState {
+    visible: boolean;
+    userName: string;
+    password: string;
+}
