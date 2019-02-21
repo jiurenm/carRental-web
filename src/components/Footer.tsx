@@ -1,6 +1,17 @@
 import * as React from "react";
+import * as createHashHistroy from  "history";
 
-export class Footer extends React.Component {
+export class Footer extends React.Component<any,any> {
+    constructor(props:any) {
+        super(props);
+    }
+
+    redirect(val:any) {
+        var url = "/help/" + val;
+        createHashHistroy.createHashHistory().push(url);
+        location.reload();
+    }
+
     render() {
         return (
             <div className="footer">
@@ -8,20 +19,20 @@ export class Footer extends React.Component {
                     <div className="bottom-ul">
                         <ul>
                             <li className="bottom-aa">新手上路</li>
-                            <li><a href="#">法律解读</a></li>
-                            <li><a href="#">押金政策</a></li>
-                            <li><a href="#">保险条款</a></li>
+                            <li><a onClick={() => this.redirect("1")}>法律解读</a></li>
+                            <li><a onClick={() => this.redirect("2")}>押金政策</a></li>
+                            <li><a onClick={() => this.redirect("3")}>保险条款</a></li>
                         </ul>
                         <ul>
                             <li className="bottom-aa">服务规则</li>
-                            <li><a href="#">服务条款</a></li>
-                            <li><a href="#">驾客协议</a></li>
-                            <li><a href="#">平台规则</a></li>
+                            <li><a onClick={() => this.redirect("4")}>服务条款</a></li>
+                            <li><a onClick={() => this.redirect("5")}>驾客协议</a></li>
+                            <li><a onClick={() => this.redirect("6")}>平台规则</a></li>
                         </ul>
                         <ul>
                             <li className="bottom-aa">帮助中心</li>
-                            <li><a href="#">预定取车</a></li>
-                            <li><a href="#">会员服务</a></li>
+                            <li><a onClick={() => this.redirect("7")}>预定取车</a></li>
+                            <li><a onClick={() => this.redirect("8")}>会员服务</a></li>
                         </ul>
                         <ul>
                             <li className="bottom-aa">联系我们</li>

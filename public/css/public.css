@@ -1,4 +1,4 @@
-*{
+/* *{
 	margin:0;
 	padding:0;
 	list-style:none;
@@ -38,4 +38,27 @@ body
 body,html{
 	height: 100%;
 	background:#f7f7f7;
+} */
+#components-layout-demo-top-side .logo {
+	width: 120px;
+	height: 31px;
+	background: rgba(255,255,255,.2);
+	margin: 16px 28px 16px 0;
+	float: left;
+}
+.ant-menu-dark.ant-menu-horizontal {
+	border-bottom: 0;
+	margin-left: 35%;
+}
+.help {
+	width: auto;
+	height: 600px;
+}
+.ant-layout {
+	width: 100%;
+	height: auto;
+}
+.ant-layout-content {
+	width: auto;
+	height: auto;
 }

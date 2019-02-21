@@ -4,7 +4,7 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { Login } from './components/Login';
 import { App } from './components/App';
-import { Hello } from './components/Hello';
+import { Help } from './components/Help';
 import { Error } from './components/404';
 
 ReactDOM.render((
@@ -13,7 +13,7 @@ ReactDOM.render((
             <Switch>
                 <Route exact path="/" component={App}></Route>
                 <Route path="/login" component={Login}></Route>
-                <Route path="/help" component={Hello}></Route>
+                <Route path="/help/:id" component={Help}></Route>
                 <Route component={Error}></Route>
             </Switch>
         </React.Fragment>

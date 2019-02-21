@@ -16,14 +16,14 @@ export class Header extends React.Component {
 
     render() {
         return(
-            <div className="header">
+            <div className="head">
                 <div className="logo">
                     <a href="./index"><img src="//i.loli.net/2019/02/15/5c66212ba997e.png" alt="logo"></img></a>
                 </div>
                 <ul className="nav">
                     <li><a href="#/">首页</a></li>
                     <li><a href="#">自驾租车</a></li>
-                    <li><a href="#/help">帮助中心</a></li>
+                    <li><a href="#/help/1">帮助中心</a></li>
                     <li><a href="#">留言板</a></li>
                 </ul>
                 <div className="header-right">
