@@ -1,11 +1,11 @@
-.footer{
+.footer {
 	width:100%;
 	/* background:rgb(51,51,51); */
 	height:280px;
 	float:left;
 	color:#ededed;
 }
-.bottom-ul{
+.bottom_ul {
 	width:980px;
 	margin-left:150px;
 	float:left;
@@ -13,12 +13,12 @@
 	font-size:13px;
 	line-height:28px;
 	}
-.bottom-aa{
+.bottom_aa {
 	font-size:15px;
 	color:#fb6d00;
 	line-height:36px;
 	}
-.bottom-ul ul{
+.bottom_ul ul {
 	float: left;
 	color: black;
 	padding-left: 45px;
@@ -26,27 +26,27 @@
 	margin-top: 45px;
 }
 
-.bottom-ul ul li a{
+.bottom_ul ul li a {
 	color: black;
 	line-height:28px;
 	}
-.bottom-ul ul li a:hover{
+.bottom_ul ul li a:hover {
 	text-decoration:underline;
 	}
-.bottom-right{
+.bottom_right {
 	float:left;
 	margin-top:40px;
 	color:black;
     font-size:13px;
 }
-.bottom-right h4{
+.bottom_right h4 {
 	font-weight:normal;
 	width:99px;
 	text-align:center;
 	margin-top:12px;
 	color: black;
 }
-.footer p{
+.footer p {
 	width:100%;
 	color:black;
 	font-size:13px;

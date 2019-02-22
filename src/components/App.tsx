@@ -4,11 +4,11 @@ import { Route, Switch } from 'react-router-dom';
 import { Main } from './Main'
 
 export class App extends React.Component {
-    render() {
+    public render() {
         return (
             <div className="app">
                 <Switch>
-                    <Route exact path="/" component={Main}></Route>
+                    <Route exact={true} path="/" component={Main}/>
                 </Switch>
             </div>
         );

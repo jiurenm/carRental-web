@@ -35,7 +35,7 @@
 	text-decoration: none;
 }
 
-.head .header-right {
+.head .header_right {
 	float: right;
 	font-family: "微软雅黑";
 	font-size: 14px;
@@ -54,7 +54,24 @@
 	font-size: 14px;
 	color: #999999
 }
-.head .header-right a {
+.head .header_right a {
 	font-size: 14px;
 	color: white;
+}
+.forget a {
+	margin-top: 5px;
+	font-size: 12px;
+	margin-left: 71%
+}
+#btn_login {
+	margin-left: 20%;
+}
+#btn_cancel {
+	margin-left: 10px;
+}
+.login_input {
+	margin-top: 10px;
+}
+.login_password {
+	margin-top: 5px;
 }

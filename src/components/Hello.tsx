@@ -1,6 +1,4 @@
 import * as React from "react";
-import { Header } from "./Header";
-import { Input } from "antd"
 
 /// <reference path="../interfaces.d.ts"/>
 
@@ -9,25 +7,24 @@ export class Hello extends React.Component<HelloProps, HelloState> {
         super(props);
         this.state = {
             liked: false
-        }
+        };
+        this.handleClick = this.handleClick.bind(this);
     }
 
-    private handleClick():void {
-        this.setState({
-            liked: !this.state.liked
-        });
-    }
-
-    render() {
+    public render() {
         const text = this.state.liked ? 'like':'dislike'
         return (
             <div>
-                <Input.Password placeholder="请输入密码" />
-                {/* <p onClick={this.handleClick.bind(this)}>
+                <p onClick={this.handleClick}>
                     You {text} {this.props.firstName}·{this.props.lastName}
                 </p>
-                <Header></Header> */}
             </div>
         );
+    }
+
+    private handleClick = () => {
+        this.setState({
+            liked: !this.state.liked
+        });
     }
 }

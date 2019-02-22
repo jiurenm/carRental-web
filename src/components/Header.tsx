@@ -1,124 +1,38 @@
-import * as React from "react";
-import { Menu, Dropdown, Icon, Drawer, Input, Button, message, Divider } from 'antd';
-import * as createHashHistroy from  "history";
+import * as React from 'react';
+import { Icon, Drawer, Input, Button, message, Divider } from 'antd';
+
+import DropDown from './DropDown';
+
+import * as styles from '../css/header.css';
 
 /// <reference path="../interfaces.d.ts"/>
 
-export class Header extends React.Component<any, DrawerState> {
-    userNameInput:any;
+class Header extends React.Component<any, DrawerState> {
+    private userNameInput:Input | null;
 
     constructor(props:any) {
         super(props);
         this.state = {
-            visible: false,
+            password: "",
             userName: "",
-            password: ""
+            visible: false,
         }
+        this.login = this.login.bind(this);
     };
 
-    showDrawer = () => {
-        this.setState({
-            visible: true
-        });
-    };
-
-    onClose = () => {
-        this.setState({
-            visible: false
-        });
-    };
-
-    onChange = (key:string, val:any) => {
-        switch (key) {
-            case 'username':
-                this.setState({
-                    userName: val
-                });
-                break;
-            case 'password':
-                this.setState({
-                    password: val
-                });
-                break;        
-            default:
-                break;
-        }
-    }
-
-    emitEmpty = () => {
-        this.userNameInput.focus();
-        this.setState({ userName: '' });
-    }
-
-    private login():void {
-        if (this.state.userName === "" && this.state.password === "") {
-                message.warn("用户名或密码不能为空",3);
-        } else {
-            //axios.post('').then().catch();
-            if (this.state.userName === "admin" && this.state.password === "123456") {
-                window.localStorage.setItem('Authorization','abc');
-                message.success('登录成功',3);
-                createHashHistroy.createHashHistory().push('/');
-            } else {
-                message.warning("登录失败,用户名或密码错误",3);
-            }
-        }
-    }
-
-    isLogin () {
-        if(window.localStorage.getItem("Authorization") !== null) {
-            return <li>
-                    <DropDown></DropDown>
-                </li>
-        } else {
-            const { userName } = this.state;
-            const suffix = userName ? <Icon type="close-circle" onClick={this.emitEmpty} /> : null;
-            return (
-                <div>
-                    <li>
-                        <a onClick={this.showDrawer}>登 录</a>
-                        <Divider type="vertical"></Divider>
-                        <a id="register" href="#/register">注 册</a></li>
-                    <Drawer
-                        title="登 录"
-                        placement="right"
-                        closable={false}
-                        onClose={this.onClose}
-                        visible={this.state.visible}
-                    >
-                    <Input
-                        placeholder="请输入您的手机号"
-                        prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                        suffix={suffix}
-                        value={userName}
-                        onChange={value => this.onChange('username',value.target.value)}
-                        ref={node => this.userNameInput = node}
-                    ></Input>
-                    <Input.Password placeholder="请输入密码" onChange={value => this.onChange('password',value.target.value)} />
-                    <a className="forget" href="#/reset"><p>忘记密码？</p></a>
-                    <div className="login">
-                        <Button type="primary" onClick={this.login.bind(this)}>登 录</Button>
-                        <Button type="default" onClick={this.onClose}>取消</Button>
-                    </div>
-                    </Drawer>
-                </div>
-            );
-        }
-    };
-
-    render() {
+    public render() {
         return(
-            <div className="head">
-                <div className="logo">
-                    <a href="#/"><img src="//i.loli.net/2019/02/15/5c66212ba997e.png" alt="logo"></img></a>
+            <div className={styles.head}>
+                <div className={styles.logo}>
+                    <a href="#/"><img src="//i.loli.net/2019/02/15/5c66212ba997e.png" alt="logo0"/></a>
                 </div>
-                <ul className="nav">
+                <ul className={styles.nav}>
                     <li><a href="#/">首页</a></li>
                     <li><a href="#/car">自驾租车</a></li>
                     <li><a href="#/help/1">帮助中心</a></li>
                     <li><a href="#/contact">留言板</a></li>
                 </ul>
-                <div className="header-right">
+                <div className={styles.header_right}>
                     <div>
                         <ul>
                             {this.isLogin()}
@@ -127,45 +41,99 @@ export class Header extends React.Component<any, DrawerState> {
                 </div>
             </div>
         );
+    }
+
+    private isLogin () {
+        if(window.localStorage.getItem("Authorization") !== null) {
+            return <li>
+                    <DropDown/>
+                </li>
+        } else {
+            const { userName } = this.state;
+            const suffix = userName ? <Icon type="close-circle" onClick={this.emitEmpty} /> : null;
+            return (
+                <div>
+                    <li>
+                        <a onClick={this.showDrawer}>登 录</a>
+                        <Divider type="vertical"/>
+                        <a id={styles.register} href="#/register">注 册</a></li>
+                    <Drawer
+                        title="登 录"
+                        placement="right"
+                        closable={false}
+                        onClose={this.onClose}
+                        visible={this.state.visible}
+                    >
+                    <div className={styles.login_input}>
+                        <Input
+                            placeholder="请输入您的手机号"
+                            prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                            suffix={suffix}
+                            // value={userName}
+                            // onChange={value => this.onChange('username',value.target.value)}
+                            onChange={this.onChangeName}
+                            // ref={node => this.userNameInput = node}
+                        />
+                    </div>
+                    <div className={styles.login_password}>
+                        <Input.Password placeholder="请输入密码" onChange={this.onChangePassword} />
+                    </div>
+                    <p className={styles.forget}><a href="#/reset">忘记密码？</a></p>
+                    <div>
+                        <Button id={styles.btn_login} type="primary" onClick={this.login}>登 录</Button>
+                        <Button id={styles.btn_cancel} type="default" onClick={this.onClose}>取消</Button>
+                    </div>
+                    </Drawer>
+                </div>
+            );
+        }
+    }
+
+    private login():void {
+        if (this.state.userName === "" && this.state.password === "") {
+                message.warn("用户名或密码不能为空",3);
+        } else {
+            // axios.post('').then().catch();
+            if (this.state.userName === "admin" && this.state.password === "123456") {
+                window.localStorage.setItem('Authorization','abc');
+                message.success('登录成功',3);
+                this.onClose();
+            } else {
+                message.warning("登录失败,用户名或密码错误",3);
+            }
+        }
+    }
+
+    private emitEmpty = () => {
+        if(this.userNameInput !== null) {
+            this.userNameInput.focus();
+        }        
+        this.setState({ userName: '' });
+    }
+
+    private onChangeName = (e:any) => {
+        this.setState({
+            userName: e.target.value
+        });
+    }
+
+    private onChangePassword = (e:any) => {
+        this.setState({
+            password: e.target.value
+        });
+    }
+
+    private showDrawer = () => {
+        this.setState({
+            visible: true
+        });
+    };
+
+    private onClose = () => {
+        this.setState({
+            visible: false
+        });
     };
 }
 
-export class DropDown extends React.Component {
-    constructor(props:any) {
-        super(props);
-    };
-    render() {
-        const onClick = (key:any) => {
-            switch (key.key) {
-                case '1':
-                    createHashHistroy.createHashHistory().push('/order');
-                    break; 
-                case '2':
-                    createHashHistroy.createHashHistory().push('/assets');
-                    break;
-                case '3':
-                    createHashHistroy.createHashHistory().push('/account');
-                    break;
-                case '4':
-                    window.localStorage.removeItem('Authorization');
-                    location.reload();
-                    break;
-                default:
-                    break;
-            }
-        };
-        const menu = (
-            <Menu onClick={onClick}>
-                <Menu.Item key="1">我的订单</Menu.Item>
-                <Menu.Item key="2">我的资产</Menu.Item>
-                <Menu.Item key="3">我的账户</Menu.Item>
-                <Menu.Item key="4">退出登录</Menu.Item>
-            </Menu>
-        );
-        return (
-            <Dropdown overlay={menu}>
-                <a className="ant-dropdown-link" href="#">您好！{window.localStorage.getItem("Authorization")} <Icon type="down" /></a>
-            </Dropdown>
-        );
-    }
-}
+export default Header;

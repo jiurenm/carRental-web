@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { Layout, Menu, Icon, Divider } from 'antd';
 
-import {Header as Tou} from './Header';
+import Header from './Header';
 import Footer from './Footer';
+
+import * as styles from '../css/public.css'
 
 const { SubMenu } = Menu;
 const {
@@ -14,10 +16,57 @@ export class Help extends React.Component<HelpProps, HelpState> {
         super(props);
         this.state = {
             context: this.setContext(this.props.match.params.id)
-        }
+        };
+        this.onSelect = this.onSelect.bind(this);
     }
 
-    onSelect(item:any) {
+    public render() {
+        const context:string = this.state.context;
+        return (
+            <div>
+                <Header/>
+                <div className={styles.help}>
+                <Layout>
+                    <Content style={{ padding: '0 50px' }}>
+                        <Layout style={{ padding: '24px 0', background: '#fff' }}>
+                            <Sider width={200} style={{ background: '#fff' }}>
+                                <Menu
+                                    mode="inline"
+                                    defaultSelectedKeys={[this.props.match.params.id]}
+                                    defaultOpenKeys={['sub1','sub2','sub3']}
+                                    style={{ height: '100%' }}
+                                    onSelect={this.onSelect}
+                                >
+                                    <SubMenu key="sub1" title={<span><Icon type="user" />新手上路</span>}>
+                                        <Menu.Item key="1">法律解读</Menu.Item>
+                                        <Menu.Item key="2">押金政策</Menu.Item>
+                                        <Menu.Item key="3">保险条款</Menu.Item>
+                                    </SubMenu>
+                                    <SubMenu key="sub2" title={<span><Icon type="laptop" />服务规则</span>}>
+                                        <Menu.Item key="4">服务条款</Menu.Item>
+                                        <Menu.Item key="5">驾客协议</Menu.Item>
+                                        <Menu.Item key="6">平台规则</Menu.Item>
+                                    </SubMenu>
+                                    <SubMenu key="sub3" title={<span><Icon type="notification" />帮助中心</span>}>
+                                        <Menu.Item key="7">预定取车</Menu.Item>
+                                        <Menu.Item key="8">会员服务</Menu.Item>
+                                    </SubMenu>
+                                </Menu>
+                            </Sider>
+                            <Content style={{ padding: '0 24px', minHeight: 280, textAlign: 'center' }}>
+                                    {context}
+                            </Content>
+                        </Layout>
+                    </Content>
+                </Layout>
+                </div>
+                <Divider/>
+                <Footer/>
+            </div>
+        );
+    }
+
+    private onSelect(item:any) {
         switch (item.key) {
             case "1":
                 this.setState({
@@ -72,7 +121,7 @@ export class Help extends React.Component<HelpProps, HelpState> {
         }
     }
 
-    setContext(val:any) {
+    private setContext(val:any) {
         switch (val) {
             case "1":
                 val = "法律解读";
@@ -101,51 +150,5 @@ export class Help extends React.Component<HelpProps, HelpState> {
             default:
                 break;
         }
-    }
-
-    render() {
-        const context:string = this.state.context;
-        return (
-            <div>
-                <Tou></Tou>
-                <div className="help">
-                <Layout>
-                    <Content style={{ padding: '0 50px' }}>
-                        <Layout style={{ padding: '24px 0', background: '#fff' }}>
-                            <Sider width={200} style={{ background: '#fff' }}>
-                                <Menu
-                                    mode="inline"
-                                    defaultSelectedKeys={[this.props.match.params.id]}
-                                    defaultOpenKeys={['sub1','sub2','sub3']}
-                                    style={{ height: '100%' }}
-                                    onSelect={this.onSelect.bind(this)}
-                                >
-                                    <SubMenu key="sub1" title={<span><Icon type="user" />新手上路</span>}>
-                                        <Menu.Item key="1">法律解读</Menu.Item>
-                                        <Menu.Item key="2">押金政策</Menu.Item>
-                                        <Menu.Item key="3">保险条款</Menu.Item>
-                                    </SubMenu>
-                                    <SubMenu key="sub2" title={<span><Icon type="laptop" />服务规则</span>}>
-                                        <Menu.Item key="4">服务条款</Menu.Item>
-                                        <Menu.Item key="5">驾客协议</Menu.Item>
-                                        <Menu.Item key="6">平台规则</Menu.Item>
-                                    </SubMenu>
-                                    <SubMenu key="sub3" title={<span><Icon type="notification" />帮助中心</span>}>
-                                        <Menu.Item key="7">预定取车</Menu.Item>
-                                        <Menu.Item key="8">会员服务</Menu.Item>
-                                    </SubMenu>
-                                </Menu>
-                            </Sider>
-                            <Content style={{ padding: '0 24px', minHeight: 280, textAlign: 'center' }}>
-                                    {context}
-                            </Content>
-                        </Layout>
-                    </Content>
-                </Layout>
-                </div>
-                <Divider></Divider>
-                <Footer></Footer>
-            </div>
-        );
     }
 }

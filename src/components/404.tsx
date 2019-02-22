@@ -1,6 +1,9 @@
-import * as React from "react";
+import * as React from 'react';
 
-import { Empty,Button } from "antd";
+import { Empty,Button } from 'antd';
+import * as createHashHistroy from  "history";
+
+import '../css/public.css'
 
 /// <reference path="../interfaces.d.ts"/>
 
@@ -9,11 +12,7 @@ export class Error extends React.Component<any,any> {
         super(props);
     }
 
-    goMain() {
-        this.props.history.push("/")
-    }
-
-    render () {
+    public render () {
         return (
             <div>
                 <Empty
@@ -23,9 +22,13 @@ export class Error extends React.Component<any,any> {
                             404 Not Found
                         </span>
                     }
-                ><Button type="primary" onClick={this.goMain.bind(this)}>返回首页</Button>
+                ><Button type="primary" onClick={this.goMain}>返回首页</Button>
                 </Empty>
             </div>
         );
+    }
+
+    private goMain() {
+        createHashHistroy.createHashHistory().push('/');
     }
 }

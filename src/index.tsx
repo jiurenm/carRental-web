@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import registerServiceWorker from './registerServiceWorker'
 
 import { App } from './components/App';
 import { Help } from './components/Help';
@@ -12,12 +13,14 @@ ReactDOM.render((
     <Router>
         <React.Fragment>
             <Switch>
-                <Route exact path="/" component={App}></Route>
-                <Route path="/help/:id" component={Help}></Route>
-                <Route path="/hello" component={Hello}></Route>
-                <Route path="/contact" component={Contact}></Route>
-                <Route component={Error}></Route>
+                <Route exact={true} path="/" component={App}/>
+                <Route path="/help/:id" component={Help}/>
+                <Route path="/hello" component={Hello}/>
+                <Route path="/contact" component={Contact}/>
+                <Route component={Error}/>
             </Switch>
         </React.Fragment>
     </Router>
-), document.getElementById('app'));
+), document.getElementById('root') as HTMLElement);
+
+registerServiceWorker();

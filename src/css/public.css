@@ -34,26 +34,3 @@
 .anticon-close-circle:active {
 	color: #666;
 }
-.ant-input {
-	margin-top: 10px;
-}
-.ant-input-password.ant-input-affix-wrapper .ant-input-suffix {
-	margin-top: 5px;
-}
-.ant-input-affix-wrapper .ant-input-prefix {
-	margin-top: 5px;
-}
-.ant-input-suffix .anticon.anticon-close-circle {
-	margin-top: 10px;
-}
-.forget p {
-	margin-top: 5px;
-	font-size: 12px;
-	text-align: right;
-}
-.login .ant-btn.ant-btn-primary {
-	margin-left: 20%;
-}
-.login .ant-btn.ant-btn-default{
-	margin-left: 10px;
-}
