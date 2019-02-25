@@ -6,18 +6,18 @@
 	color:#ededed;
 }
 .bottom_ul {
-	width:980px;
+	width:auto;
 	margin-left:150px;
 	float:left;
 	font-weight:normal;
 	font-size:13px;
 	line-height:28px;
-	}
+}
 .bottom_aa {
 	font-size:15px;
 	color:#fb6d00;
 	line-height:36px;
-	}
+}
 .bottom_ul ul {
 	float: left;
 	color: black;
@@ -25,16 +25,16 @@
 	padding-right:65px;
 	margin-top: 45px;
 }
-
 .bottom_ul ul li a {
 	color: black;
 	line-height:28px;
-	}
+}
 .bottom_ul ul li a:hover {
 	text-decoration:underline;
-	}
+}
 .bottom_right {
 	float:left;
+	margin-left:15%;
 	margin-top:40px;
 	color:black;
     font-size:13px;

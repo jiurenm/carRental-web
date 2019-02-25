@@ -23,7 +23,10 @@ interface HelpProps {
 }
 
 interface DrawerState {
+    confirmLoading: boolean;
     visible: boolean;
-    userName: string;
-    password: string;
+}
+
+interface contractState {
+    dataSource: Array<any>
 }

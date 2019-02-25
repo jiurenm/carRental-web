@@ -8,6 +8,7 @@ import { Help } from './components/Help';
 import { Error } from './components/404';
 import { Hello } from './components/Hello';
 import { Contact } from './components/Contact'
+import LoginForm from './components/Login';
 
 ReactDOM.render((
     <Router>
@@ -17,6 +18,7 @@ ReactDOM.render((
                 <Route path="/help/:id" component={Help}/>
                 <Route path="/hello" component={Hello}/>
                 <Route path="/contact" component={Contact}/>
+                <Route path="/login" component={LoginForm}/>
                 <Route component={Error}/>
             </Switch>
         </React.Fragment>

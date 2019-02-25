@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { Layout, Menu, Icon, Divider } from 'antd';
+import { Layout, Menu, Icon, Divider, BackTop } from 'antd';
 
 import Header from './Header';
 import Footer from './Footer';
 
-import * as styles from '../css/public.css'
+import * as styles from '../css/header.css'
 
 const { SubMenu } = Menu;
 const {
@@ -62,6 +62,9 @@ export class Help extends React.Component<HelpProps, HelpState> {
                 </div>
                 <Divider/>
                 <Footer/>
+                <div>
+                    <BackTop />
+                </div>
             </div>
         );
     }

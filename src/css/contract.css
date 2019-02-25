@@ -1,0 +1,18 @@
+.suggestion h1 {
+    margin-top: 5%;
+    text-align: center;
+}
+.context {
+    margin-top: 5%;
+    margin-left: 10%;
+    float: left;
+    margin-bottom: 10%;
+}
+#input {
+    width: 350px;
+}
+.img {
+    float: right;
+    margin-top: 8%;
+    margin-right: 25%;
+}

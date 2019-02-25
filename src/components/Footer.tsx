@@ -38,7 +38,7 @@ class Footer extends React.Component<any,any> {
                     <img src="//i.loli.net/2019/02/20/5c6ce63e6c559.jpg" width="99px" height="99px"/>
                     <h4>关注微信公众号</h4>
                 </div>
-                <p>Copyright©2017-2019 www.zuche.com All Rights Reserved.　一租车官网 京ICP备88888888号 京公网安备号 111111111111111</p>
+                <p>Copyright©2018-2019 www.zuche.com All Rights Reserved.　一租车官网 京ICP备88888888号 京公网安备号 111111111111111</p>
             </div>
         );
     }
