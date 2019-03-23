@@ -54,7 +54,7 @@ class Header extends React.Component<any, DrawerState> {
                         <Divider type="vertical"/>
                         <a id={styles.register} href="#/register">注 册</a></li>
                     <Modal
-                        title="Login"
+                        title="登录"
                         visible={visible}
                         onOk={this.handleOk}
                         confirmLoading={confirmLoading}
