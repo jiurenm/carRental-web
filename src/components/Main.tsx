@@ -20,6 +20,11 @@ export class Main extends React.Component {
                         <div><a href="//www.tmall.com"><img src="//i.loli.net/2019/02/25/5c7380633082d.jpg" /></a></div>
                     </Carousel>
                 </div>
+                <div className={styles.hot}>
+                    <h1>热门车型</h1>
+                </div>
+                <Divider/>
+                
                 <Divider/>
                 <Footer/>
                 <div>
