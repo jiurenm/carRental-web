@@ -9,6 +9,7 @@ import { Error } from './components/404';
 import { Hello } from './components/Hello';
 import { Contact } from './components/Contact'
 import LoginForm from './components/Login';
+import CarList from './components/CarList'
 
 ReactDOM.render((
     <Router>
@@ -19,6 +20,7 @@ ReactDOM.render((
                 <Route path="/hello" component={Hello}/>
                 <Route path="/contact" component={Contact}/>
                 <Route path="/login" component={LoginForm}/>
+                <Route path="/carList" component={CarList}/>
                 <Route component={Error}/>
             </Switch>
         </React.Fragment>
