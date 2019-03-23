@@ -10,16 +10,16 @@ class Login extends React.Component<any,any> {
             <Form onSubmit={ this.handleSubmit } id={styles.login_form}>
                 <Form.Item>
                     {getFieldDecorator('username', {
-                        rules: [{required: true, message: 'Please input your username!'}],
+                        rules: [{required: true, message: '请输入用户名!'}],
                     })(
-                        <Input prefix={<Icon type='user' style={{color: 'rgba(0,0,0,.25)'}} />} placeholder="Username"/>
+                        <Input prefix={<Icon type='user' style={{color: 'rgba(0,0,0,.25)'}} />} placeholder="用户名"/>
                     )}
                 </Form.Item>
                 <Form.Item>
                     {getFieldDecorator('password', {
-                        rules: [{required: true, message: 'Please input your password!'}],
+                        rules: [{required: true, message: '请输入密码!'}],
                     })(
-                        <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+                        <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="密码" />
                     )}
                 </Form.Item>
                 <Form.Item>
@@ -27,13 +27,13 @@ class Login extends React.Component<any,any> {
                         valuePropName: 'checked',
                         initialValue: true,
                     })(
-                        <Checkbox>Remember me</Checkbox>
+                        <Checkbox>记住密码</Checkbox>
                     )}
-                    <a id={styles.login_form_forgot} href="">Forgot password</a>
+                    <a id={styles.login_form_forgot} href="#/forgot">忘记密码</a>
                     <Button type="primary" htmlType="submit" id={styles.login_form_button}>
-                        Log in
+                        登 录
                     </Button>
-                    Or <a href="">register now!</a>
+                    Or <a href="#/register">立即注册</a>
                 </Form.Item>
             </Form>
         );
