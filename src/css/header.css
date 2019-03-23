@@ -1,35 +1,41 @@
 .head {
 	overflow: hidden;
-    background: #000;
-    width: auto;
+	background: #000;
+	width: auto;
 	margin: 0 auto;
 }
+
 .head .logo {
-    overflow: auto;
-    width: 176px;
-    height: 44px;
-    margin: 14px;
-    float: left;
+	overflow: auto;
+	width: 176px;
+	height: 44px;
+	margin: 14px;
+	float: left;
 }
+
 .head .nav {
 	margin-left: 30px;
 	float: left;
 	margin-top: 22px;
 }
+
 .head .nav .navnow a {
 	color: #fb6d00;
 	text-decoration: none;
 }
+
 .head .nav li {
 	float: left;
 	margin-left: 24px;
 }
+
 .head .nav li a {
 	display: block;
 	font-size: 15px;
 	color: #ededed;
 	padding: 4px 6px;
 }
+
 .head .nav li a:hover {
 	color: #fb6d00;
 	text-decoration: none;
@@ -44,32 +50,40 @@
 	margin-right: 100px;
 	margin-top: 30px;
 }
+
 .head #register {
 	float: right;
 	font-size: 14px;
 	color: #999999
 }
+
 .head .header_right a {
 	font-size: 14px;
 	color: white;
 }
+
 .forget a {
 	margin-top: 5px;
 	font-size: 12px;
 	margin-left: 71%
 }
+
 #btn_login {
 	margin-left: 20%;
 }
+
 #btn_cancel {
 	margin-left: 10px;
 }
+
 .login_input {
 	margin-top: 10px;
 }
+
 .login_password {
 	margin-top: 5px;
 }
+
 .help {
 	width: auto;
 	height: 600px;
