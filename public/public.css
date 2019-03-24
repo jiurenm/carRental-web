@@ -1,3 +1,26 @@
 .ant-modal-footer .ant-btn.ant-btn-primary {
     visibility: hidden;
 }
+
+.ant-list-item-meta-content {
+    margin-left: -25%;
+    margin-top: 2%;
+}
+
+.ant-avatar.ant-avatar-circle.ant-avatar-image {
+    width: 50%;
+    height: 50%;
+}
+
+.ant-avatar.ant-avatar-circle.ant-avatar-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.ant-list-item-meta-title a {
+    font-size: 18px;
+}
+
+.ant-list-item-meta-description {
+    font-size: 12px;
+}

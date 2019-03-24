@@ -30,3 +30,16 @@ interface DrawerState {
 interface contractState {
     dataSource: Array<any>
 }
+
+interface carProp {
+
+}
+
+interface CarState {
+    initLoading: boolean,
+    loading: boolean,
+    carList: string,
+    key: string,
+    noTitleKey: string,
+    selectedTag: any
+}
