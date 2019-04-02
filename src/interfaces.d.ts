@@ -32,7 +32,6 @@ interface contractState {
 }
 
 interface carProp {
-
 }
 
 interface CarState {

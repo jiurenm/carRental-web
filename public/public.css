@@ -24,3 +24,7 @@
 .ant-list-item-meta-description {
     font-size: 12px;
 }
+
+.ant-carousel.ant-carousel-vertical {
+    margin-left: 30%
+}

@@ -2,7 +2,7 @@ import * as React from "react";
 import { Card, List, Avatar, Button } from "antd";
 import axios from "axios";
 
-import { Hello } from "./Hello"
+import { Hello } from "./Tag"
 
 import * as styles from '../css/public.css';
 
@@ -41,8 +41,8 @@ const contentList = {
   year: ""
 };
 
-class CarList extends React.Component<any, CarState> {
-  constructor(props: any) {
+class CarList extends React.Component<carProp, CarState> {
+  constructor(props: carProp) {
     super(props);
     this.state = {
       initLoading: true,
@@ -98,7 +98,7 @@ class CarList extends React.Component<any, CarState> {
                 avatar={
                   <Avatar src={item.picture} />
                 }
-                title={<a href={"#/" + item.id}>{item.name}
+                title={<a href={"#/cardetail/" + item.id}>{item.name}
                   <br />{"￥" + item.price[0].shortTime + "/日均"}</a>}
                 description={"三厢|1.5自动|乘坐" + item.carDetails[0].zws + "人"}
               />
@@ -118,7 +118,7 @@ class CarList extends React.Component<any, CarState> {
 
   private getData() {
     axios
-      .get("http://192.168.1.6:8083/car/")
+      .get("http://localhost:8083/car/")
       .then(res => {
         if (res.data.code === 200) {
           contentList[this.state.key] = (
@@ -134,7 +134,7 @@ class CarList extends React.Component<any, CarState> {
                     avatar={
                       <Avatar src={item.picture} />
                     }
-                    title={<a href={"#/" + item.id}>{item.name}
+                    title={<a href={"#/cardetail/" + item.id}>{item.name}
                       <br />{"￥" + item.price[0].shortTime + "/日均"}</a>}
                     description={"三厢|1.5自动|乘坐" + item.carDetails[0].zws + "人"}
                   />
@@ -171,7 +171,7 @@ class CarList extends React.Component<any, CarState> {
                 <Avatar src={item.picture} />
               }
               title={
-                <a href={"#" + item.id}>{item.name}<br />
+                <a href={"#/cardetail/" + item.id}>{item.name}<br />
                   ￥{this.getPrice(key, item.price[0])}
                 </a>
               }
@@ -184,8 +184,7 @@ class CarList extends React.Component<any, CarState> {
   };
 
   private rental(id: string) {
-    alert(id)
-    console.log(window.localStorage.getItem("tags"))
+    window.location.href="#/cardetail/" + id
   };
 
   private getPrice(type: string, price: any) {
