@@ -91,7 +91,7 @@ class CarList extends React.Component<carProp, CarState> {
           dataSource={car}
           renderItem={(item: any) => (
             <List.Item id={styles.ant_list_item}
-              actions={[<Button style={{ marginTop: "20px" }} type="primary" onClick={() => this.rental(item.id)} key={item.id}>租车</Button>]}
+              actions={[<Button style={{ marginTop: "20px" }} type="primary" onClick={() => this.rental(item.id, 'shortTime')} key={item.id}>租车</Button>]}
               extra={"  "}
             >
               <List.Item.Meta
@@ -127,7 +127,7 @@ class CarList extends React.Component<carProp, CarState> {
               dataSource={res.data.data}
               renderItem={(item: any) => (
                 <List.Item id={styles.ant_list_item}
-                  actions={[<Button style={{ marginTop: "20px" }} type="primary" onClick={() => this.rental(item.id)} key={item.id}>租车</Button>]}
+                  actions={[<Button style={{ marginTop: "20px" }} type="primary" onClick={() => this.rental(item.id, 'shortTime')} key={item.id}>租车</Button>]}
                   extra={"  "}
                 >
                   <List.Item.Meta
@@ -163,7 +163,7 @@ class CarList extends React.Component<carProp, CarState> {
         dataSource={this.state.carList}
         renderItem={(item: any) => (
           <List.Item id={styles.ant_list_item}
-            actions={[<Button style={{ marginTop: "20px" }} type="primary" key={item.id}>租车</Button>]}
+            actions={[<Button style={{ marginTop: "20px" }} type="primary" key={item.id} onClick={ () => this.rental(item.id, key) }>租车</Button>]}
             extra={"   "}
           >
             <List.Item.Meta
@@ -183,8 +183,8 @@ class CarList extends React.Component<carProp, CarState> {
     );
   };
 
-  private rental(id: string) {
-    window.location.href="#/cardetail/" + id
+  private rental(id: string, key: string) {
+    window.location.href="#/order/"+ key +"/" + id
   };
 
   private getPrice(type: string, price: any) {

@@ -11,10 +11,10 @@ class DropDown extends React.Component {
         const onClick = (key:any) => {
             switch (key.key) {
                 case '1':
-                    createHashHistroy.createHashHistory().push('/order');
+                    createHashHistroy.createHashHistory().push('/account');
                     break; 
                 case '2':
-                    createHashHistroy.createHashHistory().push('/assets');
+                    createHashHistroy.createHashHistory().push('/account');
                     break;
                 case '3':
                     createHashHistroy.createHashHistory().push('/account');
@@ -30,14 +30,13 @@ class DropDown extends React.Component {
         const menu = (
             <Menu onClick={onClick}>
                 <Menu.Item key="1">我的订单</Menu.Item>
-                <Menu.Item key="2">我的资产</Menu.Item>
                 <Menu.Item key="3">我的账户</Menu.Item>
                 <Menu.Item key="4">退出登录</Menu.Item>
             </Menu>
         );
         return (
             <Dropdown overlay={menu}>
-                <a className="ant-dropdown-link" href="#">您好！{window.localStorage.getItem("Authorization")} <Icon type="down" /></a>
+                <a className="ant-dropdown-link" href="#/account">您好！{window.localStorage.getItem("username")} <Icon type="down" /></a>
             </Dropdown>
         );
     }

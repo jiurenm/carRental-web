@@ -154,7 +154,7 @@ class Details extends React.Component<any, any> {
 
   private yuding() {
     if (window.localStorage.getItem("Authorization") !== null) {
-      alert("a");
+      window.location.href="#/order/shortTime/" + this.props.match.params.id
     } else {
       this.setState({
         loginVisible: true

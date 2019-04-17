@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Form, Input, Icon, Checkbox, Button, message } from 'antd';
+import axios from 'axios';
 
 import * as styles from '../css/public.css';
 
@@ -42,13 +43,25 @@ class Login extends React.Component<any,any> {
     private handleSubmit = (e:any) => {
         e.preventDefault();
         this.props.form.validateFields((err:any, values:any) => {
-            if(values.username === "admin" && values.password === "123456") {
-                localStorage.setItem('Authorization','abc')
-                message.info("登录成功");
-                window.location.reload();
-            } else {
-                message.error("登录失败")
+            const param = {
+                username: values.username,
+                password: values.password
             }
+            axios.post('http://localhost:8083/login',param,{
+                headers:{
+                    'Content-Type': 'application/json;charset=UTF-8'
+                }
+            }).then((res) => {
+                if(res.data.code === 200) {
+                    const Authorization = res.data.data.tokenHead + res.data.data.token + "";
+                    localStorage.setItem('Authorization', Authorization);
+                    localStorage.setItem('username', values.username);
+                    message.info("登录成功");
+                    window.location.reload();
+                } else {
+                    message.error("登录失败")
+                }
+            })
         });
     }
 }
