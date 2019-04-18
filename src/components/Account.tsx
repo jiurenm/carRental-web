@@ -1,20 +1,8 @@
-import * as React from "react";
-import {
-  Menu,
-  Card,
-  Tabs,
-  List,
-  Modal,
-  Input,
-  Button,
-  Divider,
-  message,
-  Table
-} from "antd";
+import { Button, Card, Divider, Input, List, Menu, message, Modal, Table, Tabs } from "antd";
 import axios from "axios";
-
-import Header from "./Header";
+import * as React from "react";
 import Footer from "./Footer";
+import Header from "./Header";
 
 const confirm = Modal.confirm;
 const MenuItemGroup = Menu.ItemGroup;
@@ -74,9 +62,9 @@ class Account extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
     this.state = {
-      old: '',
-      new1: '',
-      new2: '',
+      old: "",
+      new1: "",
+      new2: "",
       content: "",
       loding: false,
       oldPhone: "",
@@ -338,10 +326,28 @@ class Account extends React.Component<any, any> {
         this.setState({
           content: (
             <div>
-              <Input.Password placeholder="输入原密码" onChange={(value) => this.old(value.target.value)}/>
-              <Input.Password style={{ marginTop: 10 }} placeholder="输入新密码" onChange={(value) => this.new1(value.target.value)}/>
-              <Input.Password style={{ marginTop: 10 }} placeholder="再次输入新密码" onChange={(value) => this.new2(value.target.value)}/>
-              <Button style={{ marginTop: 10 }} type="primary" block={true} onClick={()=>this.confirm()}>确认</Button>
+              <Input.Password
+                placeholder="输入原密码"
+                onChange={value => this.old(value.target.value)}
+              />
+              <Input.Password
+                style={{ marginTop: 10 }}
+                placeholder="输入新密码"
+                onChange={value => this.new1(value.target.value)}
+              />
+              <Input.Password
+                style={{ marginTop: 10 }}
+                placeholder="再次输入新密码"
+                onChange={value => this.new2(value.target.value)}
+              />
+              <Button
+                style={{ marginTop: 10 }}
+                type="primary"
+                block={true}
+                onClick={() => this.confirm()}
+              >
+                确认
+              </Button>
             </div>
           )
         });
@@ -351,45 +357,47 @@ class Account extends React.Component<any, any> {
     }
   }
 
-  private old = (e:any) => {
+  private old = (e: any) => {
     this.setState({
       old: e
-    })
-  }
+    });
+  };
 
-  private new1 = (e:any) => {
+  private new1 = (e: any) => {
     this.setState({
       new1: e
-    })
-  }
+    });
+  };
 
-  private new2 = (e:any) => {
+  private new2 = (e: any) => {
     this.setState({
       new2: e
-    })
-  }
+    });
+  };
 
   private confirm = () => {
     if (this.state.new1 !== this.state.new2) {
-      message.error('前后密码不相同')
+      message.error("前后密码不相同");
     } else {
-      axios.get('http://localhost:8083/changePassword/' + this.state.new1, {
-        headers: {
-          "Content-Type": "application/json;charset=UTF-8",
-          Authorization: localStorage.getItem("Authorization")
-        }
-      }).then(res => {
-        if(res.data.code === 200) {
-          this.setState({
-            old: '',
-            new1: '',
-            new2: ''
-          })
-          message.info('修改成功')
-        }
-      })
+      axios
+        .get("http://localhost:8083/changePassword/" + this.state.new1, {
+          headers: {
+            "Content-Type": "application/json;charset=UTF-8",
+            Authorization: localStorage.getItem("Authorization")
+          }
+        })
+        .then(res => {
+          if (res.data.code === 200) {
+            this.setState({
+              old: "",
+              new1: "",
+              new2: ""
+            });
+            message.info("修改成功");
+          }
+        });
     }
-  }
+  };
 
   private changePassword() {
     confirm({

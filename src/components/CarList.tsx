@@ -1,10 +1,8 @@
-import * as React from "react";
-import { Card, List, Avatar, Button } from "antd";
+import { Avatar, Button, Card, List } from "antd";
 import axios from "axios";
-
-import { Hello } from "./Tag"
-
-import * as styles from '../css/public.css';
+import * as React from "react";
+import * as styles from "../css/public.css";
+import { Hello } from "./Tag";
 
 /// <reference path="../interfaces.d.ts"/>
 
@@ -31,7 +29,7 @@ const tabListNoTitle = [
   }
 ];
 
-let car = ""
+let car = "";
 
 const contentList = {
   shortTime: "",
@@ -61,12 +59,16 @@ class CarList extends React.Component<carProp, CarState> {
   public render() {
     return (
       <div>
-        <div style={{ float: 'left', width: '30%', border: '1px solid #e8e8e8' }}>
-          <div style={{ marginTop: '5%', marginLeft: '3%', marginBottom: '5%' }}>
+        <div
+          style={{ float: "left", width: "30%", border: "1px solid #e8e8e8" }}
+        >
+          <div
+            style={{ marginTop: "5%", marginLeft: "3%", marginBottom: "5%" }}
+          >
             <Hello getMsg={(msg: any) => this.getMsg(msg)} />
           </div>
         </div>
-        <div style={{ float: 'right', width: '70%' }}>
+        <div style={{ float: "right", width: "70%" }}>
           <Card
             style={{ width: "100%" }}
             tabList={tabListNoTitle}
@@ -78,29 +80,43 @@ class CarList extends React.Component<carProp, CarState> {
         </div>
       </div>
     );
-  };
+  }
 
   public componentWillUpdate() {
     if (car === "") {
-      console.log("哈哈哈")
-    }
-    else {
+      console.log("哈哈哈");
+    } else {
       contentList[this.state.key] = (
         <List
           itemLayout="horizontal"
           dataSource={car}
           renderItem={(item: any) => (
-            <List.Item id={styles.ant_list_item}
-              actions={[<Button style={{ marginTop: "20px" }} type="primary" onClick={() => this.rental(item.id, 'shortTime')} key={item.id}>租车</Button>]}
+            <List.Item
+              id={styles.ant_list_item}
+              actions={[
+                <Button
+                  style={{ marginTop: "20px" }}
+                  type="primary"
+                  onClick={() => this.rental(item.id, "shortTime")}
+                  key={item.id}
+                >
+                  租车
+                </Button>
+              ]}
               extra={"  "}
             >
               <List.Item.Meta
-                avatar={
-                  <Avatar src={item.picture} />
+                avatar={<Avatar src={item.picture} />}
+                title={
+                  <a href={"#/cardetail/" + item.id}>
+                    {item.name}
+                    <br />
+                    {"￥" + item.price[0].shortTime + "/日均"}
+                  </a>
                 }
-                title={<a href={"#/cardetail/" + item.id}>{item.name}
-                  <br />{"￥" + item.price[0].shortTime + "/日均"}</a>}
-                description={"三厢|1.5自动|乘坐" + item.carDetails[0].zws + "人"}
+                description={
+                  "三厢|1.5自动|乘坐" + item.carDetails[0].zws + "人"
+                }
               />
             </List.Item>
           )}
@@ -110,10 +126,10 @@ class CarList extends React.Component<carProp, CarState> {
   }
 
   private getMsg(msg: any) {
-    car = msg
+    car = msg;
     this.setState({
       carList: msg
-    })
+    });
   }
 
   private getData() {
@@ -126,17 +142,32 @@ class CarList extends React.Component<carProp, CarState> {
               itemLayout="horizontal"
               dataSource={res.data.data}
               renderItem={(item: any) => (
-                <List.Item id={styles.ant_list_item}
-                  actions={[<Button style={{ marginTop: "20px" }} type="primary" onClick={() => this.rental(item.id, 'shortTime')} key={item.id}>租车</Button>]}
+                <List.Item
+                  id={styles.ant_list_item}
+                  actions={[
+                    <Button
+                      style={{ marginTop: "20px" }}
+                      type="primary"
+                      onClick={() => this.rental(item.id, "shortTime")}
+                      key={item.id}
+                    >
+                      租车
+                    </Button>
+                  ]}
                   extra={"  "}
                 >
                   <List.Item.Meta
-                    avatar={
-                      <Avatar src={item.picture} />
+                    avatar={<Avatar src={item.picture} />}
+                    title={
+                      <a href={"#/cardetail/" + item.id}>
+                        {item.name}
+                        <br />
+                        {"￥" + item.price[0].shortTime + "/日均"}
+                      </a>
                     }
-                    title={<a href={"#/cardetail/" + item.id}>{item.name}
-                      <br />{"￥" + item.price[0].shortTime + "/日均"}</a>}
-                    description={"三厢|1.5自动|乘坐" + item.carDetails[0].zws + "人"}
+                    description={
+                      "三厢|1.5自动|乘坐" + item.carDetails[0].zws + "人"
+                    }
                   />
                 </List.Item>
               )}
@@ -151,7 +182,7 @@ class CarList extends React.Component<carProp, CarState> {
       .catch(err => {
         console.log(err);
       });
-  };
+  }
 
   private onTabChange = (key: any) => {
     this.setState({
@@ -162,17 +193,26 @@ class CarList extends React.Component<carProp, CarState> {
         itemLayout="horizontal"
         dataSource={this.state.carList}
         renderItem={(item: any) => (
-          <List.Item id={styles.ant_list_item}
-            actions={[<Button style={{ marginTop: "20px" }} type="primary" key={item.id} onClick={ () => this.rental(item.id, key) }>租车</Button>]}
+          <List.Item
+            id={styles.ant_list_item}
+            actions={[
+              <Button
+                style={{ marginTop: "20px" }}
+                type="primary"
+                key={item.id}
+                onClick={() => this.rental(item.id, key)}
+              >
+                租车
+              </Button>
+            ]}
             extra={"   "}
           >
             <List.Item.Meta
-              avatar={
-                <Avatar src={item.picture} />
-              }
+              avatar={<Avatar src={item.picture} />}
               title={
-                <a href={"#/cardetail/" + item.id}>{item.name}<br />
-                  ￥{this.getPrice(key, item.price[0])}
+                <a href={"#/cardetail/" + item.id}>
+                  {item.name}
+                  <br />￥{this.getPrice(key, item.price[0])}
                 </a>
               }
               description={"三厢|1.5自动|乘坐" + item.carDetails[0].zws + "人"}
@@ -184,8 +224,8 @@ class CarList extends React.Component<carProp, CarState> {
   };
 
   private rental(id: string, key: string) {
-    window.location.href="#/order/"+ key +"/" + id
-  };
+    window.location.href = "#/order/" + key + "/" + id;
+  }
 
   private getPrice(type: string, price: any) {
     switch (type) {
@@ -202,7 +242,7 @@ class CarList extends React.Component<carProp, CarState> {
       default:
         return "暂无数据";
     }
-  };
+  }
 }
 
 export default CarList;

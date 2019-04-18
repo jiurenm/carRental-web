@@ -1,11 +1,9 @@
-import * as React from "react";
-import { Divider, Carousel, BackTop, Card, Col, Row } from "antd";
+import { BackTop, Card, Carousel, Col, Divider, Row } from "antd";
 import axios from "axios";
-
-import Header from "./Header";
-import Footer from "./Footer";
-
+import * as React from "react";
 import * as styles from "../css/public.css";
+import Footer from "./Footer";
+import Header from "./Header";
 
 /// <reference path="../interfaces.d.ts"/>
 
@@ -131,21 +129,31 @@ export class Main extends React.Component<any, any> {
           <Row gutter={16}>
             {this.state.car.slice(0, 3).map((element: any) => (
               <Col span={8} key={element.id}>
-              <Card title={element.name} bordered={false}>
-                <img style={{ width: 200, height: 124 }} src={ element.picture }/>
-                <a href={ "#/cardetail/" + element.id }>{ "三厢|1.5自动|乘坐" + element.carDetails[0].zws + "人" }</a>
-              </Card>
-            </Col>
+                <Card title={element.name} bordered={false}>
+                  <img
+                    style={{ width: 200, height: 124 }}
+                    src={element.picture}
+                  />
+                  <a href={"#/cardetail/" + element.id}>
+                    {"三厢|1.5自动|乘坐" + element.carDetails[0].zws + "人"}
+                  </a>
+                </Card>
+              </Col>
             ))}
           </Row>
           <Row gutter={16} style={{ marginTop: 10 }}>
             {this.state.car.slice(3, 6).map((element: any) => (
               <Col span={8} key={element.id}>
-              <Card title={element.name} bordered={false}>
-                <img style={{ width: 200, height: 124 }} src={ element.picture }/>
-                <a href={ "#/cardetail/" + element.id }>{ "三厢|1.5自动|乘坐" + element.carDetails[0].zws + "人" }</a>
-              </Card>
-            </Col>
+                <Card title={element.name} bordered={false}>
+                  <img
+                    style={{ width: 200, height: 124 }}
+                    src={element.picture}
+                  />
+                  <a href={"#/cardetail/" + element.id}>
+                    {"三厢|1.5自动|乘坐" + element.carDetails[0].zws + "人"}
+                  </a>
+                </Card>
+              </Col>
             ))}
           </Row>
         </div>

@@ -1,19 +1,18 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
-import registerServiceWorker from "./registerServiceWorker";
-
-import { App } from "./components/App";
-import { Help } from "./components/Help";
-import { Error } from "./components/404";
-import { Contact } from "./components/Contact";
-import LoginForm from "./components/Login";
-import CarRental from "./components/CarRental";
-import Details from "./components/Details";
+import Error from "./components/404";
 import Account from "./components/Account";
+import App from "./components/App";
+import CarRental from "./components/CarRental";
+import Contact from "./components/Contact";
+import Details from "./components/Details";
+import Help from "./components/Help";
+import LoginForm from "./components/Login";
 import Order from "./components/Order";
 import Success from "./components/OrderSuccess";
 import Register from "./components/Register";
+import registerServiceWorker from "./registerServiceWorker";
 
 ReactDOM.render(
   <Router>

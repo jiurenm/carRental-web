@@ -1,10 +1,8 @@
-import * as React from "react";
+import { Button, Card, Carousel, Divider, Modal } from "antd";
 import axios from "axios";
-
-import { Carousel, Divider, Card, Button, Modal } from "antd";
-
-import Header from "./Header";
+import * as React from "react";
 import Footer from "./Footer";
+import Header from "./Header";
 import LoginForm from "./Login";
 
 class Details extends React.Component<any, any> {
@@ -154,7 +152,7 @@ class Details extends React.Component<any, any> {
 
   private yuding() {
     if (window.localStorage.getItem("Authorization") !== null) {
-      window.location.href="#/order/shortTime/" + this.props.match.params.id
+      window.location.href = "#/order/shortTime/" + this.props.match.params.id;
     } else {
       this.setState({
         loginVisible: true

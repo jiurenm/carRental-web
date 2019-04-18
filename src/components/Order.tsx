@@ -1,10 +1,9 @@
-import * as React from "react";
-import { Steps, Card, DatePicker, Collapse, Divider, Button, message } from "antd";
+import { Button, Card, Collapse, DatePicker, Divider, message, Steps } from "antd";
 import Axios from "axios";
 import * as moment from "moment";
-
-import Header from './Header'
-import Footer from './Footer'
+import * as React from "react";
+import Footer from "./Footer";
+import Header from "./Header";
 
 const Step = Steps.Step;
 const Panel = Collapse.Panel;
@@ -73,7 +72,7 @@ class Order extends React.Component<any, any> {
           <Step title="In Progress" description="确认订单" />
           <Step title="Waiting" description="订单成功" />
         </Steps>
-        <div style={{ marginLeft:'15%',marginRight:'auto' }}>
+        <div style={{ marginLeft: "15%", marginRight: "auto" }}>
           <div style={{ display: "flex" }}>
             <Card
               title={this.state.car.name}
@@ -135,10 +134,16 @@ class Order extends React.Component<any, any> {
               <p style={{ marginLeft: "auto" }}>￥{this.state.price + 20}</p>
             </div>
           </Card>
-          <Button type="primary" style={{ marginLeft: '900px',marginTop:20 }} onClick={ () => this.submit() }>提交订单</Button>
+          <Button
+            type="primary"
+            style={{ marginLeft: "900px", marginTop: 20 }}
+            onClick={() => this.submit()}
+          >
+            提交订单
+          </Button>
         </div>
-        <Divider/>
-        <Footer/>
+        <Divider />
+        <Footer />
       </div>
     );
   }
@@ -223,25 +228,25 @@ class Order extends React.Component<any, any> {
   }
 
   private submit() {
-    if(this.state.time === "") {
-      message.warning('请选择取车时间');
+    if (this.state.time === "") {
+      message.warning("请选择取车时间");
     } else {
       const params = {
         cid: this.props.match.params.id,
         getTime: this.state.time,
         returnTime: this.state.nextTime,
         price: this.state.price
-      }
-      Axios.post('http://localhost:8083/order/reserve',params,{
+      };
+      Axios.post("http://localhost:8083/order/reserve", params, {
         headers: {
           "Content-Type": "application/json;charset=UTF-8",
           Authorization: localStorage.getItem("Authorization")
         }
-      }).then((res) => {
-        if(res.data.code === 200) {
-          window.location.href="#/success/" + res.data.data
+      }).then(res => {
+        if (res.data.code === 200) {
+          window.location.href = "#/success/" + res.data.data;
         }
-      })
+      });
     }
   }
 }
