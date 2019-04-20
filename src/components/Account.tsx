@@ -96,7 +96,7 @@ class Account extends React.Component<any, any> {
 
   public componentWillMount() {
     axios
-      .get("http://localhost:8083/order/all", {
+      .get("http://47.102.210.246:8083/order/all", {
         headers: {
           "Content-Type": "application/json;charset=UTF-8",
           Authorization: localStorage.getItem("Authorization")
@@ -263,7 +263,7 @@ class Account extends React.Component<any, any> {
         break;
       case "5":
         axios
-          .get("http://localhost:8083/info", {
+          .get("http://47.102.210.246:8083/info", {
             headers: {
               "Content-Type": "application/json;charset=UTF-8",
               Authorization: localStorage.getItem("Authorization")
@@ -387,7 +387,7 @@ class Account extends React.Component<any, any> {
       message.error("前后密码不相同");
     } else {
       axios
-        .get("http://localhost:8083/changePassword/" + this.state.new1, {
+        .get("http://47.102.210.246:8083/changePassword/" + this.state.new1, {
           headers: {
             "Content-Type": "application/json;charset=UTF-8",
             Authorization: localStorage.getItem("Authorization")
@@ -436,7 +436,7 @@ class Account extends React.Component<any, any> {
       okType: "danger",
       cancelText: "No",
       onOk() {
-        // axios.get('http://localhost:8083/changePhone/', {
+        // axios.get('http://47.102.210.246:8083/changePhone/', {
         //   headers:{
         //     'Content-Type': 'application/json;charset=UTF-8',
         //     'Authorization': localStorage.getItem("Authorization")
@@ -477,7 +477,7 @@ class Account extends React.Component<any, any> {
       return;
     }
     axios
-      .get("http://localhost:8083/changePhone/" + this.state.newPhone, {
+      .get("http://47.102.210.246:8083/changePhone/" + this.state.newPhone, {
         headers: {
           "Content-Type": "application/json;charset=UTF-8",
           Authorization: localStorage.getItem("Authorization")

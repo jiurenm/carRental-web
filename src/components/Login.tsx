@@ -58,7 +58,7 @@ class Login extends React.Component<any, any> {
         password: values.password
       };
       axios
-        .post("http://localhost:8083/login", param, {
+        .post("http://47.102.210.246:8083/login", param, {
           headers: {
             "Content-Type": "application/json;charset=UTF-8"
           }

@@ -37,7 +37,7 @@ class Details extends React.Component<any, any> {
   }
 
   public componentWillMount() {
-    const url = "http://localhost:8083/car/" + this.state.id;
+    const url = "http://47.102.210.246:8083/car/" + this.state.id;
     axios
       .get(url)
       .then(res => {

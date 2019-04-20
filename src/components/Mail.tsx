@@ -14,7 +14,7 @@ class Mail extends React.Component<any, any> {
   }
 
   public componentWillMount() {
-    Axios.get("http://localhost:8083/message/show", {
+    Axios.get("http://47.102.210.246:8083/message/show", {
       headers: {
         "Content-Type": "application/json;charset=UTF-8",
         Authorization: localStorage.getItem("Authorization")
@@ -124,7 +124,7 @@ class Mail extends React.Component<any, any> {
   };
 
   private handleClick = (id: any) => {
-    Axios.get("http://localhost:8083/message/read/" + id, {
+    Axios.get("http://47.102.210.246:8083/message/read/" + id, {
       headers: {
         "Content-Type": "application/json;charset=UTF-8",
         Authorization: localStorage.getItem("Authorization")
@@ -137,7 +137,7 @@ class Mail extends React.Component<any, any> {
   };
 
   private recycle = (id: any) => {
-    Axios.get("http://localhost:8083/message/recycle/" + id, {
+    Axios.get("http://47.102.210.246:8083/message/recycle/" + id, {
       headers: {
         "Content-Type": "application/json;charset=UTF-8",
         Authorization: localStorage.getItem("Authorization")
@@ -150,7 +150,7 @@ class Mail extends React.Component<any, any> {
   };
 
   private revert = (id: any) => {
-    Axios.get("http://localhost:8083/message/revert/" + id, {
+    Axios.get("http://47.102.210.246:8083/message/revert/" + id, {
       headers: {
         "Content-Type": "application/json;charset=UTF-8",
         Authorization: localStorage.getItem("Authorization")
@@ -163,7 +163,7 @@ class Mail extends React.Component<any, any> {
   };
 
   private delete = (id: any) => {
-    Axios.get("http://localhost:8083/message/delete/" + id, {
+    Axios.get("http://47.102.210.246:8083/message/delete/" + id, {
       headers: {
         "Content-Type": "application/json;charset=UTF-8",
         Authorization: localStorage.getItem("Authorization")

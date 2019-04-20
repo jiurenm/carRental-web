@@ -18,7 +18,7 @@ export class Hello extends React.Component<any, any, any> {
 
   public componentWillMount() {
     axios
-      .get("http://localhost:8083/search/cx")
+      .get("http://47.102.210.246:8083/search/cx")
       .then(res => {
         tagsFromServer = res.data.data;
       })
@@ -26,7 +26,7 @@ export class Hello extends React.Component<any, any, any> {
         console.log(err);
       });
     axios
-      .get("http://localhost:8083/search/pp")
+      .get("http://47.102.210.246:8083/search/pp")
       .then(res => {
         tagsFromServer2 = res.data.data;
       })
@@ -87,7 +87,7 @@ export class Hello extends React.Component<any, any, any> {
 
   public componentWillUpdate() {
     axios
-      .post("http://localhost:8083/search/search", {
+      .post("http://47.102.210.246:8083/search/search", {
         param: window.localStorage.getItem("tags")
       })
       .then(res => {

@@ -92,7 +92,7 @@ class RegisterForm extends React.Component<any, any> {
           username: values.username,
           password: values.password1
         };
-        Axios.post("http://localhost:8083/register", param, {
+        Axios.post("http://47.102.210.246:8083/register", param, {
           headers: {
             "Content-Type": "application/json;charset=UTF-8"
           }

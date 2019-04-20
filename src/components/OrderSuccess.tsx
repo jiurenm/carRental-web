@@ -25,7 +25,7 @@ class Success extends React.Component<any, any> {
 
   public componentWillMount() {
     Axios.get(
-      "http://localhost:8083/order/info/" + this.props.match.params.id,
+      "http://47.102.210.246:8083/order/info/" + this.props.match.params.id,
       {
         headers: {
           "Content-Type": "application/json;charset=UTF-8",
@@ -34,7 +34,7 @@ class Success extends React.Component<any, any> {
       }
     ).then(res => {
       if (res.data.code === 200) {
-        Axios.get("http://localhost:8083/order/number/" + res.data.data.vid, {
+        Axios.get("http://47.102.210.246:8083/order/number/" + res.data.data.vid, {
           headers: {
             "Content-Type": "application/json;charset=UTF-8",
             Authorization: localStorage.getItem("Authorization")
@@ -112,7 +112,7 @@ class Success extends React.Component<any, any> {
         </p>
       ),
       onOk() {
-        Axios.get("http://localhost:8083/order/pay/" + e, {
+        Axios.get("http://47.102.210.246:8083/order/pay/" + e, {
           headers: {
             "Content-Type": "application/json;charset=UTF-8",
             Authorization: localStorage.getItem("Authorization")

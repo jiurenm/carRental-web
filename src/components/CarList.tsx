@@ -134,7 +134,7 @@ class CarList extends React.Component<carProp, CarState> {
 
   private getData() {
     axios
-      .get("http://localhost:8083/car/")
+      .get("http://47.102.210.246:8083/car/")
       .then(res => {
         if (res.data.code === 200) {
           contentList[this.state.key] = (

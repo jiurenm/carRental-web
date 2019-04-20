@@ -25,7 +25,7 @@ class Order extends React.Component<any, any> {
   }
 
   public componentWillMount() {
-    Axios.get("http://localhost:8083/car/" + this.props.match.params.id, {
+    Axios.get("http://47.102.210.246:8083/car/" + this.props.match.params.id, {
       headers: {
         headers: {
           "Content-Type": "application/json;charset=UTF-8",
@@ -237,7 +237,7 @@ class Order extends React.Component<any, any> {
         returnTime: this.state.nextTime,
         price: this.state.price
       };
-      Axios.post("http://localhost:8083/order/reserve", params, {
+      Axios.post("http://47.102.210.246:8083/order/reserve", params, {
         headers: {
           "Content-Type": "application/json;charset=UTF-8",
           Authorization: localStorage.getItem("Authorization")

@@ -24,11 +24,11 @@ export class Main extends React.Component<any, any> {
 
   public componentWillMount() {
     axios
-      .get("http://localhost:8083/car/")
+      .get("http://47.102.210.246:8083/car/")
       .then(res => {
         if (res.data.code === 200) {
           axios
-      .get("http://localhost:8081/carousel/list")
+      .get("http://47.102.210.246:8081/carousel/list")
       .then(res1 => {
         if (res1.data.code === 200) {
           this.setState({
