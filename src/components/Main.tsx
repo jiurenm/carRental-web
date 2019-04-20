@@ -13,7 +13,12 @@ export class Main extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
     this.state = {
-      car: []
+      car: [],
+      carousel: [{
+        id: '',
+        href: '',
+        src: ''
+      }]
     };
   }
 
@@ -22,9 +27,20 @@ export class Main extends React.Component<any, any> {
       .get("http://localhost:8083/car/")
       .then(res => {
         if (res.data.code === 200) {
+          axios
+      .get("http://localhost:8081/carousel/list")
+      .then(res1 => {
+        if (res1.data.code === 200) {
           this.setState({
-            car: res.data.data
+            car: res.data.data,
+            carousel: res1.data.data
           });
+          console.log(this.state.carousel)
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
         }
       })
       .catch(err => {
@@ -38,21 +54,15 @@ export class Main extends React.Component<any, any> {
         <Header />
         <div>
           <Carousel autoplay={true} className={styles.carcousel}>
-            <div>
-              <a href="#/register">
-                <img src="//files.1hai.cn/group72/M00/65/CE/rBQFIFvb_VOAOPmDAAJT_SGA7i8728.jpg" />
-              </a>
-            </div>
-            <div>
-              <a href="#/car">
-                <img src="//fimg.zuchecdn.com/upload/web/HomePage/HeadFigure/2018/2560x500-guojizuche-180201-web.jpg" />
-              </a>
-            </div>
-            <div>
-              <a href="//www.tmall.com">
-                <img src="//i.loli.net/2019/02/25/5c7380633082d.jpg" />
-              </a>
-            </div>
+          {
+            this.state.carousel.map((e:any) => (
+                <div>
+                  <a href={e.href}>
+                    <img src={e.src} />
+                  </a>
+                </div>
+            ))
+          }
           </Carousel>
         </div>
         <div

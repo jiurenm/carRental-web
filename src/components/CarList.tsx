@@ -224,7 +224,11 @@ class CarList extends React.Component<carProp, CarState> {
   };
 
   private rental(id: string, key: string) {
-    window.location.href = "#/order/" + key + "/" + id;
+    if(window.localStorage.getItem("Authorization") === null) {
+      alert("未登录")
+    } else {
+      window.location.href = "#/order/" + key + "/" + id;
+    }
   }
 
   private getPrice(type: string, price: any) {

@@ -3,6 +3,7 @@ import axios from "axios";
 import * as React from "react";
 import Footer from "./Footer";
 import Header from "./Header";
+import Mail from './Mail';
 
 const confirm = Modal.confirm;
 const MenuItemGroup = Menu.ItemGroup;
@@ -102,7 +103,6 @@ class Account extends React.Component<any, any> {
         }
       })
       .then(res => {
-        console.log(res);
         if (res.data.code === 200) {
           this.setState({
             order: res.data.data,
@@ -184,6 +184,9 @@ class Account extends React.Component<any, any> {
               <MenuItemGroup key="g1" title="我的订单">
                 <Menu.Item key="1">自驾订单</Menu.Item>
               </MenuItemGroup>
+              <MenuItemGroup key="g2" title="我的消息">
+                <Menu.Item key="2">消息</Menu.Item>
+              </MenuItemGroup>
               <MenuItemGroup key="g3" title="我的账户">
                 <Menu.Item key="5">我的信息</Menu.Item>
                 <Menu.Item key="6">登录密码</Menu.Item>
@@ -201,7 +204,6 @@ class Account extends React.Component<any, any> {
   }
 
   private handleSelect(e: any) {
-    console.log(e);
     switch (e.key) {
       case "1":
         console.log(e.key);
@@ -253,6 +255,11 @@ class Account extends React.Component<any, any> {
             </Tabs>
           )
         });
+        break;
+      case "2":
+        this.setState({
+          content: <Mail />
+        })
         break;
       case "5":
         axios

@@ -8,7 +8,6 @@ import CarRental from "./components/CarRental";
 import Contact from "./components/Contact";
 import Details from "./components/Details";
 import Help from "./components/Help";
-import LoginForm from "./components/Login";
 import Order from "./components/Order";
 import Success from "./components/OrderSuccess";
 import Register from "./components/Register";
@@ -21,7 +20,6 @@ ReactDOM.render(
         <Route exact={true} path="/" component={App} />
         <Route path="/help/:id" component={Help} />
         <Route path="/contact" component={Contact} />
-        <Route path="/login" component={LoginForm} />
         <Route path="/car" component={CarRental} />
         <Route path="/cardetail/:id" component={Details} />
         <Route path="/account" component={Account} />
