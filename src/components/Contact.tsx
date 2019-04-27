@@ -1,9 +1,10 @@
-import { AutoComplete, BackTop, Button, Divider, Input } from "antd";
+import { AutoComplete, BackTop, Button, Divider, Input, message } from "antd";
 import * as React from "react";
 /// <reference path="../interfaces.d.ts"/>
 import * as styles from "../css/contract.css";
 import Footer from "./Footer";
 import Header from "./Header";
+import Axios from 'axios';
 
 const { TextArea } = Input;
 
@@ -11,7 +12,11 @@ class Contact extends React.Component<any, contractState> {
   constructor(props: any) {
     super(props);
     this.state = {
-      dataSource: []
+      dataSource: [],
+      zhuti: '',
+      phone: '',
+      email: '',
+      context: '',
     };
   }
 
@@ -27,7 +32,7 @@ class Contact extends React.Component<any, contractState> {
                 <p>主题：</p>
               </td>
               <td>
-                <Input id={styles.input} />
+                <Input id={styles.input} onChange={this.zhuti}/>
               </td>
             </tr>
             <tr>
@@ -35,7 +40,7 @@ class Contact extends React.Component<any, contractState> {
                 <p>手机号码：</p>
               </td>
               <td>
-                <Input id={styles.input} />
+                <Input id={styles.input} onChange={this.phone}/>
               </td>
             </tr>
             <tr>
@@ -55,13 +60,13 @@ class Contact extends React.Component<any, contractState> {
                 <p>内容：</p>
               </td>
               <td>
-                <TextArea rows={5} />
+                <TextArea rows={5} onChange={this.content}/>
               </td>
             </tr>
             <tr>
               <td />
               <td>
-                <Button type="primary" block={true}>
+                <Button type="primary" block={true} onClick={this.handleClick}>
                   提交
                 </Button>
               </td>
@@ -85,8 +90,56 @@ class Contact extends React.Component<any, contractState> {
       dataSource:
         !value || value.indexOf("@") >= 0
           ? []
-          : [`${value}@gmail.com`, `${value}@163.com`, `${value}@qq.com`]
+          : [`${value}@gmail.com`, `${value}@163.com`, `${value}@qq.com`],
+      email: value
     });
+  };
+
+  private zhuti = (e:any) => {
+    this.setState({
+      zhuti: e.target.value
+    })
+  };
+
+  private phone = (e:any) => {
+    this.setState({
+      phone: e.target.value
+    })
+  };
+
+  private content = (e:any) => {
+    this.setState({
+      context: e.target.value
+    })
+  };
+
+  private handleClick = () => {
+    if (this.state.zhuti === "") {
+      message.error("主题不能为空");
+      if (this.state.phone === "") {
+        message.error("手机不能为空");
+        if (this.state.context === "") {
+          message.error("内容不能为空");
+        }
+      }
+    } else {
+      const params = {
+        title: this.state.zhuti,
+        phone: this.state.phone,
+        email: this.state.phone,
+        context: this.state.context,
+      }
+      Axios.post("http://47.102.210.246:8083/message/send", params, {
+        headers: {
+          "Content-Type": "application/json;charset=UTF-8",
+          Authorization: localStorage.getItem("Authorization")
+        }
+      }).then(res => {
+        if (res.data.code === 200) {
+          message.success("提交成功")
+        }
+      })
+    }
   };
 }
 

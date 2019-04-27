@@ -51,7 +51,7 @@ class Footer extends React.Component<any, any> {
         </div>
         <div className={styles.bottom_right}>
           <img
-            src="//i.loli.net/2019/02/20/5c6ce63e6c559.jpg"
+            src="http://i.loli.net/2019/02/20/5c6ce63e6c559.jpg"
             width="99px"
             height="99px"
           />

@@ -28,7 +28,11 @@ interface DrawerState {
 }
 
 interface contractState {
-    dataSource: Array<any>
+    dataSource: Array<any>,
+    zhuti: string,
+    phone: string,
+    email: string,
+    context: string,
 }
 
 interface carProp {

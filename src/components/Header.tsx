@@ -20,7 +20,7 @@ class Header extends React.Component<any, DrawerState> {
       <div className={styles.head}>
         <div className={styles.logo}>
           <a href="#/">
-            <img src="//i.loli.net/2019/02/15/5c66212ba997e.png" alt="logo0" />
+            <img src="http://i.loli.net/2019/02/15/5c66212ba997e.png" alt="logo0" />
           </a>
         </div>
         <ul className={styles.nav}>
